@@ -1,0 +1,37 @@
+Connection interface
+
+--A Connection is a session between a Java application and a database. It helps to establish a connection with the database.
+
+-- The Connection interface is a factory of Statement, PreparedStatement, and DatabaseMetaData,
+   i.e. (that is), an object of Connection can be used to get the object of Statement and DatabaseMetaData.
+   The Connection interface provide many methods for transaction management like commit(), rollback(), setAutoCommit(), setTransactionIsolation(), etc.
+
+--By default, connection commits the changes after executing queries.
+
+Commonly used methods of Connection interface:
+
+1) public Statement createStatement(): creates a statement object that can be used to execute SQL queries.
+
+2) public Statement createStatement(int resultSetType,int resultSetConcurrency): Creates a Statement object that will generate ResultSet objects with the given type and concurrency.
+
+3) public void setAutoCommit(boolean status): is used to set the commit status. By default, it is true.
+
+4) public void commit(): saves the changes made since the previous commit/rollback is permanent.
+
+5) public void rollback(): Drops all changes made since the previous commit/rollback.
+
+6) public void close(): closes the connection and Releases a JDBC resources immediately.
+
+Connection Interface Fields
+
+There are some common Connection interface constant fields that are present in the Connect interface. These fields specify the isolation level of a transaction.
+
+TRANSACTION_NONE: No transaction is supported, and it is indicated by this constant.
+
+TRANSACTION_READ_COMMITTED: It is a constant which shows that the dirty reads are not allowed. However, phantom reads and non-repeatable reads can occur.
+
+TRANSACTION_READ_UNCOMMITTED: It is a constant which shows that dirty reads, non-repeatable reads, and phantom reads can occur.
+
+TRANSACTION_REPEATABLE_READ: It is a constant which shows that the non-repeatable reads and dirty reads are not allowed. However, phantom reads and can occur.
+
+TRANSACTION_SERIALIZABLE: It is a constant which shows that the non-repeatable reads, dirty reads as well as the phantom reads are not allowed.

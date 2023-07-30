@@ -1,0 +1,39 @@
+DriverManager class
+
+--The DriverManager class is the component of JDBC API and also a member of the java.sql package.
+  The DriverManager class acts as an interface between users and drivers.
+  It keeps track of the drivers that are available and handles establishing a connection between a database and the appropriate driver.
+  It contains all the appropriate methods to register and deregister the database driver class and to create a connection between a Java application and the database.
+  The DriverManager class maintains a list of Driver classes that have registered themselves by calling the method DriverManager.registerDriver().
+  Note that before interacting with a Database, it is a mandatory process to register the driver; otherwise, an exception is thrown.
+
+Methods of the DriverManager Class
+
+Method	Description
+
+1) public static synchronized void registerDriver(Driver driver):	is used to register the given driver with DriverManager.
+                                                                    No action is performed by the method when the given driver is already registered.
+
+2) public static synchronized void deregisterDriver(Driver driver):	is used to deregister the given driver (drop the driver from the list) with DriverManager.
+                                                                    If the given driver has been removed from the list, then no action is performed by the method.
+
+3) public static Connection getConnection(String url) throws SQLException:	is used to establish the connection with the specified url.
+                                                                            The SQLException is thrown when the corresponding Driver class of the given database is not registered with the DriverManager.
+
+4) public static Connection getConnection(String url,String userName,String password) throws SQLException:	is used to establish the connection with the specified url, username, and password.
+                                                                                                            The SQLException is thrown when the corresponding Driver class of the given database is not registered with the DriverManager.
+
+5) public static Driver getDriver(String url)	Those drivers that understand the mentioned URL (present in the parameter of the method) are returned by this method provided
+                                                those drivers are mentioned in the list of registered drivers.
+
+6) pubic static int getLoginTimeout()	The duration of time a driver is allowed to wait in order to establish a connection with the database is returned by this method.
+
+7) pubic static void setLoginTimeout(int sec)	The method provides the time in seconds. sec mentioned in the parameter is the maximum time that a driver is allowed to wait
+                                                in order to establish a connection with the database. If 0 is passed in the parameter of this method,
+                                                the driver will have to wait infinitely while trying to establish the connection with the database.
+
+8) public static Connection getConnection(String URL, Properties prop) throws SQLException	A connection object is returned by this method after creating a connection
+                                                                       to the database present at the mentioned URL, which is the first parameter of this method.
+                                                                       The second parameter, which is "prop", fetches the authentication details of the database (username and password.).
+                                                                       Similar to the other variation of the getConnection() method, this method also throws the SQLException,
+                                                                       when the corresponding Driver class of the given database is not registered with the DriverManager.

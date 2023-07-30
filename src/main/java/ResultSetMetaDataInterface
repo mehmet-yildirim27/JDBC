@@ -1,0 +1,18 @@
+java ResultSetMetaData Interface
+
+The metadata means data about data i.e. we can get further information from the data.
+
+--If you have to get metadata of a table like total number of column, column name, column type etc. ,
+  ResultSetMetaData interface is useful because it provides methods to get metadata from the ResultSet object.
+
+Commonly used methods of ResultSetMetaData interface
+
+Method	Description
+
+public int getColumnCount() ==> throws SQLException	it returns the total number of columns in the ResultSet object.
+
+public String getColumnName(int index) ==> throws SQLException	it returns the column name of the specified column index.
+
+public String getColumnTypeName(int index) ==> throws SQLException	it returns the column type name for the specified index.
+
+public String getTableName(int index) ==> throws SQLException	it returns the table name for the specified column index.
